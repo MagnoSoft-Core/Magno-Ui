@@ -1,0 +1,6 @@
+- Navbar
+- Sofphone
+- Grilla
+- Menu
+- Barra de busquedas
+- Filtros

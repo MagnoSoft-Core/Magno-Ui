@@ -1,0 +1,15 @@
+<label class="custom-checkbox-label">
+  <input
+    type="checkbox"
+    class="peer custom-checkbox-input"
+    [id]="checkId()"
+    [checked]="checked()"
+    [value]="checkValue()"
+  />
+  <span
+    class="custom-checkbox-visual border-gray-400 peer-checked:bg-blue-500"
+  ></span>
+  <span class="">
+    <ng-content></ng-content>
+  </span>
+</label>

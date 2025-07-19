@@ -1,0 +1,25 @@
+/* Estilos específicos para la documentación de magno-navbar */
+
+/* Asegurar que el ejemplo del navbar no se vea afectado por estilos globales */
+.navbar-demo-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mejorar la legibilidad del código */
+pre {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Estilo para las tablas de propiedades */
+table {
+  font-size: 0.875rem;
+}
+
+/* Asegurar que las celdas de la tabla no se desborden */
+td {
+  word-wrap: break-word;
+  max-width: 200px;
+}

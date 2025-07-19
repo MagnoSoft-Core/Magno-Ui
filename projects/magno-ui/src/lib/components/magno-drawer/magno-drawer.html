@@ -1,0 +1,45 @@
+<div
+  class="fixed inset-0 z-50 bg-gray-700/30 flex justify-end"
+  (click)="closeDrawer()"
+  [ngClass]="{
+    invisible: !bindOpen(),
+    visible: bindOpen(),
+    'flex-row-reverse': position() === 'left',
+    'flex-row': position() === 'right',
+  }"
+>
+  <section
+    class="bg-white w-full px-7 py-4 transition-all duration-300 relative ease-in-out"
+    (click)="$event.stopPropagation()"
+    [ngClass]="{
+      'translate-x-full': !bindOpen() && position() === 'right',
+      'translate-x-0': bindOpen() && position() === 'right',
+      '-translate-x-0': bindOpen() && position() === 'left',
+      '-translate-x-full': !bindOpen() && position() === 'left',
+      'lg:max-w-2xs' : size() === '2xs',
+      'lg:max-w-xs' : size() === 'xs',
+      'lg:max-w-sm' : size() === 'sm',
+      'lg:max-w-md' : size() === 'md',
+      'lg:max-w-lg' : size() === 'lg',
+      'lg:max-w-xl' : size() === 'xl',
+    }"
+  >
+    @if(showCloseButton()) {
+    <button
+      class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none cursor-pointer"
+      (click)="closeDrawer()"
+    >
+      <svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden="true">
+        <path
+          d="M6 18L18 6M6 6L18 18"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </svg>
+    </button>
+    }
+    <ng-content></ng-content>
+  </section>
+</div>

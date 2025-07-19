@@ -1,0 +1,38 @@
+@import "../../../styles.css";
+
+/* Archivo: checkbox.css */
+
+.custom-checkbox-label {
+  @apply relative flex items-center pl-7 cursor-pointer select-none;
+}
+
+.custom-checkbox-input {
+  @apply absolute left-0 size-5 opacity-0 cursor-pointer;
+}
+
+.custom-checkbox-visual {
+  @apply absolute left-0 top-0 size-5 rounded border-2 transition-all duration-300;
+}
+
+/* Estados del checkbox usando selectores CSS estándar */
+/* .custom-checkbox-input:checked + .custom-checkbox-visual {
+  @apply bg-blue-500 border-blue-500;
+} */
+
+.custom-checkbox-input:hover + .custom-checkbox-visual {
+  @apply scale-105 shadow-md;
+}
+
+/* Checkmark usando pseudoelemento */
+.custom-checkbox-visual::before {
+  content: "";
+  @apply absolute left-[6px] top-[2px] w-[5px] h-[10px] border-white border-solid border-r-2 border-b-2 rotate-45 hidden;
+}
+
+.custom-checkbox-input:checked + .custom-checkbox-visual::before {
+  @apply block;
+}
+
+/* .custom-checkbox-text { */
+/* Estilos adicionales para el texto si los necesitas */
+/* } */

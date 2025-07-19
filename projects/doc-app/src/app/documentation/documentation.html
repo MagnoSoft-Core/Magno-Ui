@@ -1,0 +1,186 @@
+<div class="min-h-screen bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="py-8 border-b border-gray-200">
+      <h1 class="text-3xl font-bold text-gray-900">Magno UI Documentation</h1>
+      <p class="mt-2 text-gray-600">
+        Documentación completa de todos los componentes y layouts de Magno.
+      </p>
+    </div>
+
+    <!-- Main Content with Sidebar -->
+    <div class="py-6">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- Sidebar de navegación -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-6">
+            <nav class="space-y-2">
+              <!-- Components Section -->
+              <div class="mb-4">
+                <button
+                  (click)="toggleComponents()"
+                  class="flex items-center justify-between w-full px-3 py-2 text-lg font-semibold text-gray-900 hover:bg-gray-50 rounded-md"
+                >
+                  Components
+                  <svg
+                    class="w-5 h-5 transition-transform duration-200"
+                    [class.rotate-180]="componentsExpanded()"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                @if(componentsExpanded()){
+                <div class="mt-2 space-y-1">
+                  <a
+                    routerLink="/documentation/components/magno-drawer"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Drawer
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-navbar"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Navbar
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-sidebar"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Sidebar
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-sidebar-item"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Sidebar Item
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-sofphone"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Sofphone
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-button"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Button
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-checkbox"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Checkbox
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-grid"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Grid
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-input-text"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Input Text
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-input-textarea"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Input Textarea
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-radio"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Radio
+                  </a>
+                  <a
+                    routerLink="/documentation/components/magno-radio-group"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Radio Group
+                  </a>
+                </div>
+                }
+              </div>
+
+              <!-- Layouts Section -->
+              <div class="mb-4">
+                <button
+                  (click)="toggleLayouts()"
+                  class="flex items-center justify-between w-full px-3 py-2 text-lg font-semibold text-gray-900 hover:bg-gray-50 rounded-md"
+                >
+                  Layouts
+                  <svg
+                    class="w-5 h-5 transition-transform duration-200"
+                    [class.rotate-180]="layoutsExpanded()"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                @if(layoutsExpanded()){
+                <div class="mt-2 space-y-1">
+                  <a
+                    routerLink="/documentation/layouts/container-layout"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Container Layout
+                  </a>
+                  <a
+                    routerLink="/documentation/layouts/magno-layout-container"
+                    routerLinkActive="bg-blue-50 text-blue-700 border-blue-200"
+                    class="block px-6 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 border border-transparent"
+                  >
+                    Magno Layout Container
+                  </a>
+                </div>
+                }
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+            <div class="p-6">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

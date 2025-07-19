@@ -1,0 +1,28 @@
+<div
+  class="h-full flex flex-col justify-start border-r border-gray-300 min-w-14 transition-opacity"
+>
+  @if(showHeader()){
+  <header class="border-b border-gray-300 h-14"></header>
+  }
+  <section
+    class="grow flex flex-col justify-start gap-7 py-4 px-2 overflow-hidden relative"
+  >
+    <!-- <div
+      id="items"
+      class="grow flex flex-col gap-5 justify-start overflow-hidden"
+    > -->
+    @for (item of items(); track item.link ) {
+    <magno-sidebar-item
+      [iconWidth]="item.iconWidth"
+      [title]="item.title"
+      [imagePath]="item.imagePath"
+      [link]="item.link"
+      titleClass="text-xs font-medium text-inherit"
+    />
+    }
+    <!-- </div> -->
+  </section>
+  @if(showFooter()){
+  <footer class="border-t border-gray-300 h-14"></footer>
+  }
+</div>

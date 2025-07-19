@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+:host {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+}

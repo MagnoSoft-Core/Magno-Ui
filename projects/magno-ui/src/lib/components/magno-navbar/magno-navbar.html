@@ -1,0 +1,40 @@
+<section
+  class="flex justify-between items-center p-2.5 shadow-xl top-0 z-30 inset-x-0 bg-white"
+  [ngClass]="{
+    'fixed': isFixed(),
+    'sticky': !isFixed(),
+  }"
+>
+  <!--?  ---------------------------------SECCIÓN IZQUIERDA---------------------------------------- -->
+  <article class="flex items-center gap-8">
+    <div class="flex items-center gap-2">
+      <div class="grid place-items-center aspect-square w-8 overflow-hidden">
+        <img [src]="imgLogo()" alt="Logo" class="size-full object-cover" />
+      </div>
+      <div class="grid">
+        <h1 class="font-semibold text-lg">{{ titleLogo() }}</h1>
+        <p class="text-xs text-[#1A73E8] -mt-1">{{ subTitleLogo() }}</p>
+      </div>
+    </div>
+    @if(clientOrganizationName().length > 0 || clientOrganizationLogo().length >
+    0) {
+    <div
+      class="flex items-center border border-gray-500 self-stretch px-5 justify-center gap-1 rounded-lg"
+    >
+      <img
+        [src]="clientOrganizationLogo()"
+        alt="Logo Cliente"
+        class="size-6 object-contain"
+        [hidden]="!clientOrganizationLogo().length"
+      />
+      <p class="text-black text-xs">{{ clientOrganizationName() }}</p>
+    </div>
+    }
+  </article>
+
+  <!--? ---------------------------------SECCIÓN DERECHA-------------------------------- -->
+  <article class="flex items-center gap-4 self-stretch">
+    <!--? CONTENIDO DEL NAV -->
+    <ng-content></ng-content>
+  </article>
+</section>

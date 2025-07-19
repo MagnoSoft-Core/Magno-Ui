@@ -1,59 +1,83 @@
-# MagnuUIWorkspace
+# Magno UI Workspace
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.4.
+Este monorepo contiene todo el ecosistema de la librería de componentes Magno UI para Angular.
 
-## Development server
+## Descripción General de Proyectos
 
-To start a local development server, run:
+El workspace está organizado en los siguientes proyectos principales:
+
+- **`magno-ui`**: Es la librería de componentes de Angular. Contiene todos los componentes `standalone` reutilizables, listos para ser importados en cualquier proyecto de Angular.
+- **`doc-app`**: Una aplicación web dedicada a la documentación interactiva de los componentes de `magno-ui`. Permite visualizar los componentes en acción y ver ejemplos de uso.
+- **`dev-app`**: Una aplicación de desarrollo utilizada como un "sandbox" o entorno de pruebas para desarrollar y experimentar con los componentes de `magno-ui` de forma aislada.
+
+## Primeros Pasos
+
+A continuación se detallan los pasos para configurar el entorno de desarrollo.
+
+### Prerrequisitos
+
+Asegúrate de tener instalado lo siguiente en tu sistema:
+
+- **Git**: Para clonar el repositorio.
+- **Node.js**: (Se recomienda la versión LTS más reciente).
+- **Angular CLI**: La interfaz de línea de comandos de Angular. Si no la tienes, puedes instalarla globalmente con `npm install -g @angular/cli`.
+- **pnpm**: Como gestor de paquetes. Puedes instalarlo con `npm install -g pnpm`.
+
+### Instalación
+
+1.  **Clona el repositorio**:
+
+    ```bash
+    git clone https://github.com/usuario/repo-aleatorio.git
+    ```
+
+2.  **Navega al directorio** del proyecto:
+
+    ```bash
+    cd Magno-UI-workspace
+    ```
+
+3.  **Instala las dependencias** con `pnpm`:
+    ```bash
+    pnpm install
+    ```
+
+## Cómo Levantar los Proyectos
+
+Puedes levantar cada aplicación por separado usando Angular CLI. Los comandos deben ejecutarse desde la raíz del workspace.
+
+Por defecto, Angular sirve las aplicaciones en el puerto `4200`. Si quieres especificar un puerto diferente, puedes usar el flag `--port`.
+
+### Aplicación de Documentación (`doc-app`)
+
+Para iniciar la aplicación de documentación en el puerto por defecto:
 
 ```bash
-ng serve
+ng serve doc-app
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Para iniciarla en un puerto específico (ej. 4201):
 
 ```bash
-ng generate component component-name
+ng serve doc-app --port 4201
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Aplicación de Desarrollo (`dev-app`)
+
+Para iniciar la aplicación de desarrollo en el puerto por defecto:
 
 ```bash
-ng generate --help
+ng serve dev-app
 ```
 
-## Building
-
-To build the project run:
+Para iniciarla en un puerto específico (ej. 4202):
 
 ```bash
-ng build
+ng serve dev-app --port 4202
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Documentación de la Librería
 
-## Running unit tests
+Para más detalles sobre los componentes, sus propiedades y cómo usarlos, consulta la documentación específica de la librería en el siguiente enlace:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **[Documentación de Magno UI](./projects/magno-ui/README.md)**

@@ -1,0 +1,17 @@
+<a
+  [routerLink]="finalLink()"
+  [routerLinkActive]="activeClass()"
+  class="grid place-items-center"
+>
+  <div
+    class="w-full grid place-items-center overflow-hidden aspect-square"
+    [style.max-width.px]="iconWidth()"
+  >
+    <img
+      [src]="imagePath()"
+      [alt]="imageAlt()"
+      class="size-full object-cover fill-amber-300"
+    />
+  </div>
+  <p [class]="finalTitleClass()">{{ title() }}</p>
+</a>
