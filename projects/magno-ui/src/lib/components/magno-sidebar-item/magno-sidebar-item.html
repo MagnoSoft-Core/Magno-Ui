@@ -1,17 +1,26 @@
 <a
   [routerLink]="finalLink()"
   [routerLinkActive]="activeClass()"
-  class="grid place-items-center"
+  [class]="
+    'grid place-items-center p-2 rounded-md cursor-pointer hover:bg-gray-100 ' +
+    customClass()
+  "
+  (click)="onItemClick()"
 >
   <div
     class="w-full grid place-items-center overflow-hidden aspect-square"
-    [style.max-width.px]="iconWidth()"
+    [style.width.px]="iconWidth()"
+    [style.height.px]="iconWidth()"
+    magnoTooltip="{{ itemTitle() }}"
+    placement="right"
   >
     <img
-      [src]="imagePath()"
-      [alt]="imageAlt()"
-      class="size-full object-cover fill-amber-300"
+      [src]="iconPath()"
+      [alt]="itemTitle()"
+      class="size-full object-contain"
     />
   </div>
-  <p [class]="finalTitleClass()">{{ title() }}</p>
+  @if (itemTitle()) {
+  <p [class]="finalTitleClass()">{{ itemTitle() }}</p>
+  }
 </a>

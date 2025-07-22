@@ -7,6 +7,7 @@ export * from './lib/components/magno-drawer/magno-drawer';
 export * from './lib/components/magno-navbar/magno-navbar';
 export * from './lib/components/magno-sidebar-item/magno-sidebar-item';
 export * from './lib/components/magno-sidebar/magno-sidebar';
+export * from './lib/components/magno-tooltip/magno-tooltip';
 export * from './lib/layouts/magno-layout-container/magno-layout-container';
 
 export type * from './lib/types/magno-sidebar';

@@ -1,28 +1,38 @@
-<div
-  class="h-full flex flex-col justify-start border-r border-gray-300 min-w-14 transition-opacity"
->
-  @if(showHeader()){
-  <header class="border-b border-gray-300 h-14"></header>
-  }
-  <section
-    class="grow flex flex-col justify-start gap-7 py-4 px-2 overflow-hidden relative"
+<div class="h-full flex w-fit">
+  <div
+    class="h-full flex flex-col justify-start border-r border-gray-300 min-w-14"
   >
-    <!-- <div
-      id="items"
-      class="grow flex flex-col gap-5 justify-start overflow-hidden"
-    > -->
-    @for (item of items(); track item.link ) {
-    <magno-sidebar-item
-      [iconWidth]="item.iconWidth"
-      [title]="item.title"
-      [imagePath]="item.imagePath"
-      [link]="item.link"
-      titleClass="text-xs font-medium text-inherit"
-    />
+    @if(showHeader()){
+    <header class="border-b border-gray-300 h-14"></header>
     }
-    <!-- </div> -->
-  </section>
-  @if(showFooter()){
-  <footer class="border-t border-gray-300 h-14"></footer>
+    <section
+      class="grow flex flex-col justify-start items-center gap-7 py-4 px-2 overflow-y-auto overflow-x-hidden relative"
+    >
+      <ng-content></ng-content>
+    </section>
+    @if(showFooter()){
+    <footer class="border-t border-gray-300 h-14">
+      <ng-content select="[footer]"></ng-content>
+    </footer>
+    }
+  </div>
+
+  @if (activeChildren(); as children) {
+  <div
+    class="h-full overflow-hidden border-r border-gray-300 transition-all duration-300 ease-in-out w-48 p-4"
+  >
+    <h3 class="text-lg font-semibold mb-4">Submenú</h3>
+    <ul class="space-y-2">
+      @for (child of children; track child.link) {
+      <li>
+        <a
+          [href]="child.link"
+          class="block hover:bg-gray-200 rounded-md p-2 text-sm"
+          >{{ child.title }}</a
+        >
+      </li>
+      }
+    </ul>
+  </div>
   }
 </div>

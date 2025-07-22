@@ -1,66 +1,67 @@
-<!-- <div class="flex w-screen h-screen">
-  <magno-sidebar
-    [showHeader]="showHeader()"
-    [showFooter]="showFooter()"
-    [items]="items()"
-  >
-  </magno-sidebar>
-  <div class="flex-1 p-8">
-    <button
-      (click)="toogleShow()"
-      class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md"
-    >
-      Toggle Sidebar
-    </button>
-    <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-    <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-
-  </div>
-</div> -->
-
-<div class="flex flex-col w-screen h-screen">
+<div class="flex flex-col w-screen h-screen bg-gray-50">
   <magno-navbar
     imgLogo="/logo_mag.png"
     titleLogo="Magno-UI"
-    subTitleLogo="Components"
+    subTitleLogo="Dev App"
     [isFixed]="false"
   />
 
   <div class="flex w-screen h-full overflow-hidden">
-    <magno-sidebar [showFooter]="true" [items]="items()"> </magno-sidebar>
-    <div class="flex-1 p-8 max-h-dvh overflow-auto [scrollbar-width:thin]">
-      <!-- <button
-        (click)="toogleShow()"
-        class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md"
-      >
-        Toggle Sidebar
-      </button> -->
+    <magno-sidebar [showFooter]="true">
+      <!-- 1. Ítem simple, sin hijos -->
+      <magno-sidebar-item
+        iconPath="/sismasalud.png"
+        itemTitle="Dashboard"
+        link="/dashboard"
+        [iconWidth]="36"
+      />
+
+      <!-- 2. Ítem con submenú -->
+      <magno-sidebar-item
+        iconPath="/users.svg"
+        itemTitle="Usuarios"
+        [iconWidth]="36"
+        [childrens]="userManagementChildren"
+      />
+
+      <!-- Puedes añadir más items aquí -->
+
+      <div footer class="p-2">
+        <p class="text-xs text-center text-gray-400">Footer</p>
+      </div>
+    </magno-sidebar>
+
+    <main
+      class="flex-1 flex-col p-8 gap-4 max-h-dvh overflow-auto [scrollbar-width:thin]"
+    >
       <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
-      <p class="mt-4">Este es un ejemplo usando el sidebar optimizado.</p>
-    </div>
+      <p class="mt-4 text-gray-700">
+        Este es un ejemplo usando el nuevo sidebar refactorizado.
+      </p>
+      <p class="mt-2 text-gray-600">
+        Haz clic en el ítem de "Usuarios" para ver cómo aparece el panel del
+        submenú. Haz clic en "Dashboard" para ver un ítem de navegación simple.
+      </p>
+
+      <div class="mt-8">
+        <button
+          (click)="toogleShow()"
+          class="bg-blue-500 w-fit text-white px-4 py-2 rounded-md cursor-pointer"
+          magnoTooltip="Este botón ya no hace nada :) (es de un ejemplo anterior)"
+          placement="right"
+        >
+          Botón de prueba
+        </button>
+      </div>
+
+      <!-- Contenido de relleno para demostrar el scroll -->
+      <div class="mt-8 space-y-4 text-sm text-gray-500">
+        <p>Contenido de relleno...</p>
+        <div class="h-96 p-4 border rounded-md bg-gray-100">
+          <p>Scrollable area</p>
+        </div>
+        <p>Más contenido...</p>
+      </div>
+    </main>
   </div>
 </div>

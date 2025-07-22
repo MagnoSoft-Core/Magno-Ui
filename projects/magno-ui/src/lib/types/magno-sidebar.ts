@@ -1,9 +1,9 @@
-export type MagnoSidebarItemChild = {
+export type TMagnoSidebarItemChild = {
   title: string;
   link: string;
 };
 
-export type MagnoSidebarItemData = {
+export type TMagnoSidebarItemData = {
   imagePath: string;
   imageAlt?: string;
   title: string;
@@ -11,5 +11,5 @@ export type MagnoSidebarItemData = {
   activeClass?: string;
   iconWidth?: number;
   customClass?: string;
-  childrens: MagnoSidebarItemChild[];
+  childrens: TMagnoSidebarItemChild[];
 };

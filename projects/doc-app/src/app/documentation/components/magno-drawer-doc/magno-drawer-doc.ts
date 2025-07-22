@@ -6,7 +6,7 @@ import { MagnoDrawer } from 'magno-ui';
   selector: 'app-magno-drawer-doc',
   imports: [MagnoDrawer, FormsModule],
   templateUrl: './magno-drawer-doc.html',
-  styleUrl: './magno-drawer-doc.css'
+  styleUrl: './magno-drawer-doc.css',
 })
 export class MagnoDrawerDocComponent {
   isDrawerOpen = signal(false);
@@ -14,6 +14,6 @@ export class MagnoDrawerDocComponent {
   selectedPosition: 'left' | 'right' = 'right';
 
   toggleDrawer() {
-    this.isDrawerOpen.update(value => !value);
+    this.isDrawerOpen.update((value) => !value);
   }
 }

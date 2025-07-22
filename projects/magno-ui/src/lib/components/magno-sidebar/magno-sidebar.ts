@@ -1,13 +1,9 @@
-import { Component, input } from '@angular/core';
-import type { MagnoSidebarItemData } from '../../types/magno-sidebar';
-import { MagnoSidebarItem } from '../magno-sidebar-item/magno-sidebar-item';
-
-export type SidebarVariant = 'default' | 'compact' | 'floating';
-export type SidebarTheme = 'light' | 'dark' | 'auto';
+import { Component, input, signal } from '@angular/core';
+import type { TMagnoSidebarItemChild } from '../../types/magno-sidebar';
 
 @Component({
   selector: 'magno-sidebar',
-  imports: [MagnoSidebarItem],
+  imports: [],
   templateUrl: './magno-sidebar.html',
   styleUrl: './magno-sidebar.css',
   standalone: true,
@@ -15,5 +11,14 @@ export type SidebarTheme = 'light' | 'dark' | 'auto';
 export class MagnoSidebar {
   showHeader = input<boolean>(false);
   showFooter = input<boolean>(false);
-  items = input<MagnoSidebarItemData[]>([]);
+
+  activeChildren = signal<TMagnoSidebarItemChild[] | null>(null);
+
+  public setActiveChildren(children: TMagnoSidebarItemChild[] | undefined) {
+    if (children && children.length > 0) {
+      this.activeChildren.set(children);
+    } else {
+      this.activeChildren.set(null);
+    }
+  }
 }
