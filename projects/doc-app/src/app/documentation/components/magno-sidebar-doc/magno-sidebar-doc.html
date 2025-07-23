@@ -1,1 +1,43 @@
-<p>magno-sidebar-doc works!</p>
+<doc-page
+  [title]="'Magno Sidebar'"
+  [description]="
+    'Un componente de barra lateral que puede contener items y un submenú.'
+  "
+  [usage]="usage"
+  [properties]="properties"
+  [slots]="slots"
+>
+  <ng-template #demonstration>
+    <div
+      style="
+        height: 400px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+      "
+    >
+      <magno-sidebar [showHeader]="true" [showFooter]="true">
+        <magno-sidebar-item
+          [itemTitle]="'Home'"
+          [iconPath]="'/home.svg'"
+          [link]="'/documentation/components/magno-sidebar'"
+        ></magno-sidebar-item>
+        <magno-sidebar-item
+          [itemTitle]="'Settings'"
+          [iconPath]="'/settings.svg'"
+          [childrens]="[
+            { title: 'Profile', link: '/components/sidebar' },
+            { title: 'Account', link: '/components/sidebar' }
+          ]"
+        ></magno-sidebar-item>
+        <div footer>
+          <magno-sidebar-item
+            [itemTitle]="'Logout'"
+            [iconPath]="'/logout.svg'"
+            [link]="'/components/sidebar'"
+          ></magno-sidebar-item>
+        </div>
+      </magno-sidebar>
+    </div>
+  </ng-template>
+</doc-page>

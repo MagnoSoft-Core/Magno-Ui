@@ -1,12 +1,13 @@
-
 <doc-page
   [title]="'Magno Navbar'"
-  [description]="'Un componente de barra de navegación responsive que incluye logo, título, subtítulo y área de organización cliente.'"
+  [description]="
+    'Un componente de barra de navegación responsive que incluye logo, título, subtítulo y área de organización cliente.'
+  "
   [usage]="navbarUsage"
   [properties]="navbarProperties"
   [slots]="navbarSlots"
 >
-  <div demonstration>
+  <ng-template #demonstration>
     <div class="flex gap-4 mb-4">
       <button
         (click)="toggleFixed()"
@@ -67,12 +68,10 @@
         </li>
       </ul>
     </div>
-  </div>
+  </ng-template>
 
-  <div notes>
-    <h3 class="font-medium text-blue-900 mb-2">
-      Consideraciones importantes:
-    </h3>
+  <ng-template #notes>
+    <h3 class="font-medium text-blue-900 mb-2">Consideraciones importantes:</h3>
     <ul class="text-sm text-blue-800 space-y-1">
       <li>
         • La información de la organización cliente solo se muestra si se
@@ -92,5 +91,5 @@
         del navbar
       </li>
     </ul>
-  </div>
+  </ng-template>
 </doc-page>

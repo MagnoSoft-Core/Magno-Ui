@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MagnoSidebarDocComponent } from './magno-sidebar-doc';
 
-import { MagnoSidebarDoc } from './magno-sidebar-doc';
-
-describe('MagnoSidebarDoc', () => {
-  let component: MagnoSidebarDoc;
-  let fixture: ComponentFixture<MagnoSidebarDoc>;
+describe('MagnoSidebarDocComponent', () => {
+  let component: MagnoSidebarDocComponent;
+  let fixture: ComponentFixture<MagnoSidebarDocComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MagnoSidebarDoc]
+      imports: [MagnoSidebarDocComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MagnoSidebarDoc);
+    fixture = TestBed.createComponent(MagnoSidebarDocComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

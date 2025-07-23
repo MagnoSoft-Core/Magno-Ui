@@ -1,12 +1,12 @@
-import {
-  Component,
-  Input,
-  ContentChild,
-  TemplateRef,
-  ViewChild,
-  AfterContentInit,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  Input,
+  signal,
+  TemplateRef,
+} from '@angular/core';
 
 export interface DocProperty {
   name: string;
@@ -35,13 +35,14 @@ export class DocPageComponent implements AfterContentInit {
   @Input() slots: DocSlot[] = [];
 
   @ContentChild('demonstration') demonstrationRef: TemplateRef<any> | undefined;
+
   @ContentChild('notes') notesRef: TemplateRef<any> | undefined;
 
-  hasDemonstration: boolean = false;
-  hasNotes: boolean = false;
+  hasDemonstration = signal(false);
+  hasNotes = signal(false);
 
   ngAfterContentInit() {
-    this.hasDemonstration = !!this.demonstrationRef;
-    this.hasNotes = !!this.notesRef;
+    this.hasDemonstration.set(!!this.demonstrationRef);
+    this.hasNotes.set(!!this.notesRef);
   }
 }

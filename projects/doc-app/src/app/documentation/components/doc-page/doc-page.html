@@ -52,7 +52,7 @@
             <td class="px-6 py-4 text-sm text-gray-500 font-mono">
               {{ prop.type }}
             </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+            <td class="px-6 py-4 text-sm text-gray-500">
               {{ prop.default }}
             </td>
             <td class="px-6 py-4 text-sm text-gray-500">
@@ -100,18 +100,22 @@
   </section>
 
   <!-- Demostración -->
-  <section *ngIf="hasDemonstration">
+  @if(hasDemonstration()){
+  <section>
     <h2 class="text-2xl font-semibold text-gray-900 mb-4">Demostración</h2>
     <div class="border border-gray-200 rounded-lg p-6">
-      <ng-content select="[demonstration]"></ng-content>
+      <ng-container [ngTemplateOutlet]="demonstrationRef!"></ng-container>
     </div>
   </section>
+  }
 
   <!-- Notas -->
-  <section *ngIf="hasNotes">
+  @if(hasNotes()){
+  <section>
     <h2 class="text-2xl font-semibold text-gray-900 mb-4">Notas Adicionales</h2>
     <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-      <ng-content select="[notes]"></ng-content>
+      <ng-container [ngTemplateOutlet]="notesRef!"></ng-container>
     </div>
   </section>
+  }
 </div>

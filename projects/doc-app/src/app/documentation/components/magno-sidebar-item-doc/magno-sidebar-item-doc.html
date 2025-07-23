@@ -1,1 +1,25 @@
-<p>magno-sidebar-item-doc works!</p>
+<doc-page
+  [title]="'Magno Sidebar Item'"
+  [description]="'Un item para ser usado dentro de magno-sidebar.'"
+  [usage]="usage"
+  [properties]="properties"
+>
+  <ng-template #demonstration>
+    <div
+      style="
+        height: 200px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+      "
+    >
+      <magno-sidebar>
+        <magno-sidebar-item
+          [itemTitle]="'Home'"
+          [iconPath]="'/home.svg'"
+          [link]="'/documentation/components/magno-sidebar-item'"
+        ></magno-sidebar-item>
+      </magno-sidebar>
+    </div>
+  </ng-template>
+</doc-page>
