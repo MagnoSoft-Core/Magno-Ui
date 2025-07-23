@@ -1,0 +1,117 @@
+<div class="doc-container space-y-8">
+  <!-- Encabezado -->
+  <header>
+    <h1 class="text-3xl font-bold text-gray-900">{{ title }}</h1>
+    <p class="mt-2 text-lg text-gray-600">{{ description }}</p>
+  </header>
+
+  <!-- Uso -->
+  <section *ngIf="usage">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Uso</h2>
+    <div class="bg-gray-100 p-4 rounded-lg">
+      <pre class="text-sm overflow-x-auto"><code>{{ usage }}</code></pre>
+    </div>
+  </section>
+
+  <!-- Propiedades -->
+  <section *ngIf="properties && properties.length > 0">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Propiedades</h2>
+    <div class="overflow-x-auto border border-gray-200 rounded-lg">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Propiedad
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Tipo
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Por defecto
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Descripción
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr *ngFor="let prop of properties">
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+            >
+              {{ prop.name }}
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-500 font-mono">
+              {{ prop.type }}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+              {{ prop.default }}
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-500">
+              {{ prop.description }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Slots -->
+  <section *ngIf="slots && slots.length > 0">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Slots</h2>
+    <div class="overflow-x-auto border border-gray-200 rounded-lg">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Slot
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Descripción
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <tr *ngFor="let slot of slots">
+            <td
+              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
+            >
+              {{ slot.name }}
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-500">
+              {{ slot.description }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Demostración -->
+  <section *ngIf="hasDemonstration">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Demostración</h2>
+    <div class="border border-gray-200 rounded-lg p-6">
+      <ng-content select="[demonstration]"></ng-content>
+    </div>
+  </section>
+
+  <!-- Notas -->
+  <section *ngIf="hasNotes">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Notas Adicionales</h2>
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <ng-content select="[notes]"></ng-content>
+    </div>
+  </section>
+</div>

@@ -12,28 +12,38 @@ import { MagnoTooltip } from '../magno-tooltip/magno-tooltip';
   styleUrl: './magno-sidebar-item.css',
 })
 export class MagnoSidebarItem {
-  iconPath = input.required<string>();
+  itemDirection = input<'row' | 'column'>('row');
+
+  iconPath = input<string>('');
+  iconWidth = input<number>(32);
+
   itemTitle = input<string>('');
-  titleClass = input<string>('');
+  titleClass = input<string>('text-xs font-medium text-gray-600');
+
   link = input<string>('');
-  activeClass = input<string>('active'); // Default active class
-  childrens = input<TMagnoSidebarItemChild[]>();
-  iconWidth = input<number>(32); // Default icon width
+  activeClass = input<string>(
+    'bg-blue-100 text-blue-600 border-l-4 border-blue-600'
+  );
   customClass = input<string>('');
+
+  childrens = input<TMagnoSidebarItemChild[]>([]);
+  navToFirstChild = input<boolean>(false);
 
   private sidebar = inject(MagnoSidebar, { optional: true });
 
-  // If the item has children, the main link should not navigate, but toggle the panel.
-  // The first child's link can be used as a default navigation target if needed.
+  // *Si tiene hijos, el enlace final será el del primer hijo, siempre y cuando navToFirstChild sea true
+  // *Si no tiene hijos, el enlace final será el del propio item
   finalLink = computed(() => {
     const children = this.childrens();
-    return !children || children.length === 0 ? this.link() : null;
+    return !children || children.length === 0
+      ? this.link()
+      : this.navToFirstChild()
+      ? children[0].link
+      : null;
   });
 
-  finalTitleClass = computed(() => {
-    return this.titleClass().length
-      ? this.titleClass()
-      : 'text-xs font-medium text-gray-600';
+  itemDirectionClass = computed(() => {
+    return this.itemDirection() === 'row' ? 'flex-row' : 'flex-col';
   });
 
   onItemClick() {

@@ -13,6 +13,7 @@ export class MagnoSidebar {
   showFooter = input<boolean>(false);
 
   activeChildren = signal<TMagnoSidebarItemChild[] | null>(null);
+  // titleChildrenPanel = input<string>('');
 
   public setActiveChildren(children: TMagnoSidebarItemChild[] | undefined) {
     if (children && children.length > 0) {

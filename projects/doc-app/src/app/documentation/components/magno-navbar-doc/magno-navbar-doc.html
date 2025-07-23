@@ -1,294 +1,96 @@
-<div class="space-y-8">
-  <!-- Encabezado -->
-  <div>
-    <h1 class="text-2xl font-bold text-gray-900">Magno Navbar</h1>
-    <p class="mt-2 text-gray-600">
-      Un componente de barra de navegación responsive que incluye logo, título,
-      subtítulo y área de organización cliente.
-    </p>
-  </div>
 
-  <!-- Uso -->
-  <section>
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">Uso</h2>
-    <div class="bg-gray-50 p-4 rounded-lg">
-      <pre class="text-sm overflow-x-auto"><code>&lt;magno-navbar
-  [isFixed]="true"
-  [imgLogo]="'assets/logo.png'"
-  [titleLogo]="'Mi Aplicación'"
-  [subTitleLogo]="'Versión 1.0'"
-  [clientOrganizationName]="'Mi Empresa'"
-  [clientOrganizationLogo]="'assets/client-logo.png'"
-&gt;
-  &lt;!-- Contenido del lado derecho --&gt;
-  &lt;button class="px-4 py-2 bg-blue-500 text-white rounded"&gt;
-    Botón
-  &lt;/button&gt;
-&lt;/magno-navbar&gt;</code></pre>
+<doc-page
+  [title]="'Magno Navbar'"
+  [description]="'Un componente de barra de navegación responsive que incluye logo, título, subtítulo y área de organización cliente.'"
+  [usage]="navbarUsage"
+  [properties]="navbarProperties"
+  [slots]="navbarSlots"
+>
+  <div demonstration>
+    <div class="flex gap-4 mb-4">
+      <button
+        (click)="toggleFixed()"
+        class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+      >
+        Alternar Fixed/Sticky
+      </button>
+      <button
+        (click)="toggleClientInfo()"
+        class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+      >
+        Alternar Info Cliente
+      </button>
     </div>
-  </section>
 
-  <!-- Propiedades -->
-  <section>
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">Propiedades</h2>
-    <div class="overflow-x-auto">
-      <table class="min-w-full divide-y divide-gray-200">
-        <thead class="bg-gray-50">
-          <tr>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Propiedad
-            </th>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Tipo
-            </th>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Por defecto
-            </th>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Descripción
-            </th>
-          </tr>
-        </thead>
-        <tbody class="bg-white divide-y divide-gray-200">
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-            >
-              isFixed
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              boolean
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              true
-            </td>
-            <td class="px-6 py-4 text-sm text-gray-500">
-              Determina si el navbar se fija en la parte superior (fixed) o se
-              comporta como sticky
-            </td>
-          </tr>
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-            >
-              imgLogo
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              string
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              ''
-            </td>
-            <td class="px-6 py-4 text-sm text-gray-500">
-              URL de la imagen del logo principal
-            </td>
-          </tr>
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-            >
-              titleLogo
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              string
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              ''
-            </td>
-            <td class="px-6 py-4 text-sm text-gray-500">
-              Título principal que aparece junto al logo
-            </td>
-          </tr>
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-            >
-              subTitleLogo
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              string
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              ''
-            </td>
-            <td class="px-6 py-4 text-sm text-gray-500">
-              Subtítulo que aparece debajo del título principal
-            </td>
-          </tr>
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-            >
-              clientOrganizationName
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              string
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              ''
-            </td>
-            <td class="px-6 py-4 text-sm text-gray-500">
-              Nombre de la organización cliente (opcional)
-            </td>
-          </tr>
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-            >
-              clientOrganizationLogo
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              string
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-              ''
-            </td>
-            <td class="px-6 py-4 text-sm text-gray-500">
-              URL del logo de la organización cliente (opcional)
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
+      <magno-navbar
+        [isFixed]="isFixedValue()"
+        [imgLogo]="logoUrl"
+        [titleLogo]="titleLogo"
+        [subTitleLogo]="subTitleLogo"
+        [clientOrganizationName]="showClientInfo() ? clientOrgName : ''"
+        [clientOrganizationLogo]="showClientInfo() ? clientLogoUrl : ''"
+      >
+        <div class="flex items-center gap-2">
+          <button
+            class="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600 transition-colors"
+          >
+            Inicio
+          </button>
+          <button
+            class="px-3 py-1 bg-gray-500 text-white rounded text-sm hover:bg-gray-600 transition-colors"
+          >
+            Perfil
+          </button>
+          <button
+            class="px-3 py-1 bg-red-500 text-white rounded text-sm hover:bg-red-600 transition-colors"
+          >
+            Salir
+          </button>
+        </div>
+      </magno-navbar>
     </div>
-  </section>
 
-  <!-- Slots -->
-  <section>
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">Slots</h2>
-    <div class="overflow-x-auto">
-      <table class="min-w-full divide-y divide-gray-200">
-        <thead class="bg-gray-50">
-          <tr>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Slot
-            </th>
-            <th
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Descripción
-            </th>
-          </tr>
-        </thead>
-        <tbody class="bg-white divide-y divide-gray-200">
-          <tr>
-            <td
-              class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-            >
-              Default
-            </td>
-            <td class="px-6 py-4 text-sm text-gray-500">
-              Contenido que aparece en el lado derecho del navbar (botones,
-              menús, etc.)
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Ejemplo -->
-  <section>
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">Ejemplo</h2>
-    <div class="border border-gray-200 rounded-lg p-4">
-      <div class="flex gap-4 mb-4">
-        <button
-          (click)="toggleFixed()"
-          class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-        >
-          Alternar Fixed/Sticky
-        </button>
-        <button
-          (click)="toggleClientInfo()"
-          class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
-        >
-          Alternar Info Cliente
-        </button>
-      </div>
-
-      <div class="bg-white border border-gray-300 rounded-lg overflow-hidden">
-        <magno-navbar
-          [isFixed]="isFixedValue()"
-          [imgLogo]="logoUrl"
-          [titleLogo]="titleLogo"
-          [subTitleLogo]="subTitleLogo"
-          [clientOrganizationName]="showClientInfo() ? clientOrgName : ''"
-          [clientOrganizationLogo]="showClientInfo() ? clientLogoUrl : ''"
-        >
-          <div class="flex items-center gap-2">
-            <button
-              class="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600 transition-colors"
-            >
-              Inicio
-            </button>
-            <button
-              class="px-3 py-1 bg-gray-500 text-white rounded text-sm hover:bg-gray-600 transition-colors"
-            >
-              Perfil
-            </button>
-            <button
-              class="px-3 py-1 bg-red-500 text-white rounded text-sm hover:bg-red-600 transition-colors"
-            >
-              Salir
-            </button>
-          </div>
-        </magno-navbar>
-      </div>
-
-      <div class="mt-4 p-4 bg-gray-50 rounded-lg">
-        <h4 class="font-medium text-gray-900 mb-2">Configuración actual:</h4>
-        <ul class="text-sm text-gray-600 space-y-1">
-          <li><strong>isFixed:</strong> {{ isFixedValue() }}</li>
-          <li><strong>titleLogo:</strong> {{ titleLogo }}</li>
-          <li><strong>subTitleLogo:</strong> {{ subTitleLogo }}</li>
-          <li>
-            <strong>clientOrganizationName:</strong>
-            {{ showClientInfo() ? clientOrgName : "No mostrado" }}
-          </li>
-          <li>
-            <strong>clientOrganizationLogo:</strong>
-            {{ showClientInfo() ? "Mostrado" : "No mostrado" }}
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Notas adicionales -->
-  <section>
-    <h2 class="text-xl font-semibold text-gray-900 mb-4">Notas</h2>
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-      <h3 class="font-medium text-blue-900 mb-2">
-        Consideraciones importantes:
-      </h3>
-      <ul class="text-sm text-blue-800 space-y-1">
+    <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+      <h4 class="font-medium text-gray-900 mb-2">Configuración actual:</h4>
+      <ul class="text-sm text-gray-600 space-y-1">
+        <li><strong>isFixed:</strong> {{ isFixedValue() }}</li>
+        <li><strong>titleLogo:</strong> {{ titleLogo }}</li>
+        <li><strong>subTitleLogo:</strong> {{ subTitleLogo }}</li>
         <li>
-          • La información de la organización cliente solo se muestra si se
-          proporciona al menos el nombre o el logo
+          <strong>clientOrganizationName:</strong>
+          {{ showClientInfo() ? clientOrgName : "No mostrado" }}
         </li>
         <li>
-          • El navbar tiene una sombra (shadow-xl) para crear separación visual
-          del contenido
-        </li>
-        <li>
-          • El logo principal tiene un aspecto cuadrado (aspect-square) y se
-          ajusta automáticamente
-        </li>
-        <li>• El subtítulo aparece en color azul (#1A73E8) por defecto</li>
-        <li>
-          • El contenido del slot derecho se alinea automáticamente con el resto
-          del navbar
+          <strong>clientOrganizationLogo:</strong>
+          {{ showClientInfo() ? "Mostrado" : "No mostrado" }}
         </li>
       </ul>
     </div>
-  </section>
-</div>
+  </div>
+
+  <div notes>
+    <h3 class="font-medium text-blue-900 mb-2">
+      Consideraciones importantes:
+    </h3>
+    <ul class="text-sm text-blue-800 space-y-1">
+      <li>
+        • La información de la organización cliente solo se muestra si se
+        proporciona al menos el nombre o el logo
+      </li>
+      <li>
+        • El navbar tiene una sombra (shadow-xl) para crear separación visual
+        del contenido
+      </li>
+      <li>
+        • El logo principal tiene un aspecto cuadrado (aspect-square) y se
+        ajusta automáticamente
+      </li>
+      <li>• El subtítulo aparece en color azul (#1A73E8) por defecto</li>
+      <li>
+        • El contenido del slot derecho se alinea automáticamente con el resto
+        del navbar
+      </li>
+    </ul>
+  </div>
+</doc-page>
