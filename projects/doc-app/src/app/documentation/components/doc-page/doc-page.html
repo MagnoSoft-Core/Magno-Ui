@@ -6,15 +6,18 @@
   </header>
 
   <!-- Uso -->
-  <section *ngIf="usage">
+  @if(usage && usage.length > 0){
+  <section>
     <h2 class="text-2xl font-semibold text-gray-900 mb-4">Uso</h2>
     <div class="bg-gray-100 p-4 rounded-lg">
       <pre class="text-sm overflow-x-auto"><code>{{ usage }}</code></pre>
     </div>
   </section>
+  }
 
   <!-- Propiedades -->
-  <section *ngIf="properties && properties.length > 0">
+  @if(properties && properties.length > 0){
+  <section>
     <h2 class="text-2xl font-semibold text-gray-900 mb-4">Propiedades</h2>
     <div class="overflow-x-auto border border-gray-200 rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
@@ -43,29 +46,33 @@
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
-          <tr *ngFor="let prop of properties">
+          @for(property of properties; track property.name) {
+          <tr>
             <td
               class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
             >
-              {{ prop.name }}
+              {{ property.name }}
             </td>
             <td class="px-6 py-4 text-sm text-gray-500 font-mono">
-              {{ prop.type }}
+              {{ property.type }}
             </td>
             <td class="px-6 py-4 text-sm text-gray-500">
-              {{ prop.default }}
+              {{ property.default }}
             </td>
             <td class="px-6 py-4 text-sm text-gray-500">
-              {{ prop.description }}
+              {{ property.description }}
             </td>
           </tr>
+          }
         </tbody>
       </table>
     </div>
   </section>
+  }
 
   <!-- Slots -->
-  <section *ngIf="slots && slots.length > 0">
+  @if(slots && slots.length > 0){
+  <section>
     <h2 class="text-2xl font-semibold text-gray-900 mb-4">Slots</h2>
     <div class="overflow-x-auto border border-gray-200 rounded-lg">
       <table class="min-w-full divide-y divide-gray-200">
@@ -84,7 +91,8 @@
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
-          <tr *ngFor="let slot of slots">
+          @for(slot of slots; track slot.name) {
+          <tr>
             <td
               class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
             >
@@ -94,10 +102,12 @@
               {{ slot.description }}
             </td>
           </tr>
+          }
         </tbody>
       </table>
     </div>
   </section>
+  }
 
   <!-- Demostración -->
   @if(hasDemonstration()){
