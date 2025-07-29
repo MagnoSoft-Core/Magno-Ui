@@ -5,3 +5,8 @@
 body {
   font-family: "Montserrat Variable", sans-serif;
 }
+
+:root {
+  --magno-sidebar-item-active-bg: #1c9bac; /* Example color */
+  --magno-sidebar-item-active-text: #006064; /* Example text color */
+}

@@ -1,15 +1,18 @@
-export type TMagnoSidebarItemChild = {
-  title: string;
-  link: string;
-};
+import { TMagnoPlacement } from '../../public-api';
+
+// export type TMagnoSidebarItemChild = {
+//   title: string;
+//   link: string;
+// };
 
 export type TMagnoSidebarItemData = {
-  imagePath: string;
+  imagePath?: string;
   imageAlt?: string;
-  title: string;
+  title?: string;
   link: string;
+  tooltipText?: string;
+  tooltipPosition?: TMagnoPlacement;
   activeClass?: string;
   iconWidth?: number;
-  customClass?: string;
-  childrens: TMagnoSidebarItemChild[];
+  childrens?: TMagnoSidebarItemData[];
 };

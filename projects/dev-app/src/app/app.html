@@ -1,4 +1,4 @@
-<div class="flex flex-col w-screen h-screen bg-gray-50">
+<div class="flex flex-col w-screen h-screen bg-gray-50 text-gray-600">
   <magno-navbar
     imgLogo="/logo_mag.png"
     titleLogo="Magno-UI"
@@ -12,8 +12,9 @@
       <magno-sidebar-item
         iconPath="/sismasalud.png"
         itemTitle="Dashboard"
-        link="/"
+        link="/dashboard"
         [iconWidth]="36"
+        itemDirection="column"
       />
 
       <!-- 2. Ítem con submenú -->
@@ -22,6 +23,9 @@
         itemTitle="Usuarios"
         [iconWidth]="36"
         [childrens]="userManagementChildren"
+        [navToFirstChild]="true"
+        activeClass="bg-red-300"
+        itemDirection="column"
       />
 
       <!-- Puedes añadir más items aquí -->
@@ -34,7 +38,8 @@
     <main
       class="flex-1 flex-col p-8 gap-4 max-h-dvh overflow-auto [scrollbar-width:thin]"
     >
-      <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
+      <router-outlet></router-outlet>
+      <!-- <h1 class="text-3xl font-bold">Welcome to Magno-UI!</h1>
       <p class="mt-4 text-gray-700">
         Este es un ejemplo usando el nuevo sidebar refactorizado.
       </p>
@@ -54,14 +59,13 @@
         </button>
       </div>
 
-      <!-- Contenido de relleno para demostrar el scroll -->
       <div class="mt-8 space-y-4 text-sm text-gray-500">
         <p>Contenido de relleno...</p>
         <div class="h-96 p-4 border rounded-md bg-gray-100">
           <p>Scrollable area</p>
         </div>
         <p>Más contenido...</p>
-      </div>
+      </div> -->
     </main>
   </div>
 </div>

@@ -1,17 +1,17 @@
 <a
   [routerLink]="finalLink()"
-  [routerLinkActive]="activeClass()"
+  routerLinkActive
+  (isActiveChange)="onIsActiveChange($event)"
   [class]="
     'flex items-center justify-start p-2 gap-1 cursor-pointer hover:bg-gray-100 ' +
-    itemDirectionClass() +
-    ' ' +
-    customClass()
+    itemDirectionClass()
   "
+  [style.background-color]="finalActiveColor()"
   (click)="onItemClick()"
-  magnoTooltip="{{ itemTitle() }}"
-  placement="right"
+  magnoTooltip="{{ tooltipText() ?? '' }}"
+  [tootipPlacement]="tooltipPosition()"
 >
-  @if(iconPath().length){
+  @if(iconPath() && iconPath()?.length){
   <div
     class="w-full grid place-items-center overflow-hidden aspect-square"
     [style.width.px]="iconWidth()"
@@ -22,7 +22,7 @@
       class="size-full object-contain"
     />
   </div>
-  } @if (itemTitle()) {
+  } @if (itemTitle() && itemTitle()?.length) {
   <p [class]="titleClass()">{{ itemTitle() }}</p>
   }
 </a>

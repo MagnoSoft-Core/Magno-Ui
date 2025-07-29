@@ -19,22 +19,29 @@
   </div>
 
   <!--?--------------------------- SECCIÓN SECUNDARIA, RUTAS SECUNDARIAS -------------------------------->
-  @if (activeChildren(); as children) {
+
   <div
-    class="h-full overflow-hidden border-r border-gray-300 transition-all duration-300 ease-in-out w-48 p-4"
+    class="h-full overflow-hidden border-r border-gray-300 transition-[width] duration-200 ease-in-out"
+    [ngClass]="{
+      'w-0 border-0 invisible': !activeChildren(),
+      'w-48 p-4': activeChildren()
+    }"
   >
     <!-- <h3 class="text-lg font-semibold mb-4">Submenú</h3> -->
     <ul class="space-y-2">
-      @for (child of children; track child.link) {
+      @for (child of activeChildren(); track child.link) {
       <li>
-        <a
-          [href]="child.link"
-          class="block hover:bg-gray-200 rounded-md p-2 text-sm"
-          >{{ child.title }}</a
-        >
+        <magno-sidebar-item
+          #item
+          [itemTitle]="child?.title"
+          [iconPath]="child.imagePath"
+          [iconWidth]="child?.iconWidth ?? item.iconWidth()"
+          [link]="child.link"
+          [tooltipText]="child.tooltipText"
+          [tooltipPosition]="child.tooltipPosition ?? item.tooltipPosition()"
+        />
       </li>
       }
     </ul>
   </div>
-  }
 </div>

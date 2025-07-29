@@ -1,25 +1,25 @@
 import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 // Test import from magno-ui
 import {
   MagnoNavbar,
   MagnoSidebar,
   MagnoSidebarItem,
-  MagnoTooltip,
-  TMagnoSidebarItemChild,
+  TMagnoSidebarItemData,
 } from '@magno-ui';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MagnoSidebar, MagnoSidebarItem, MagnoNavbar, MagnoTooltip],
+  imports: [RouterOutlet, MagnoSidebar, MagnoSidebarItem, MagnoNavbar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
   // Ejemplo de datos para un submenú
-  userManagementChildren: TMagnoSidebarItemChild[] = [
-    { title: 'Ver todos', link: '/users/list' },
-    { title: 'Añadir nuevo', link: '/users/new' },
+  userManagementChildren: TMagnoSidebarItemData[] = [
+    { title: 'Ver todos', link: '/usuarios' },
+    { title: 'Añadir nuevo sdfsdfsdf sfsdsdfdsf', link: '/users/new' },
     { title: 'Roles', link: '/users/roles' },
   ];
 
