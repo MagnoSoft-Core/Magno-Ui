@@ -7,12 +7,12 @@
     <header class="border-b border-gray-300 h-14"></header>
     }
     <section
-      class="grow flex flex-col justify-start py-4 overflow-y-auto overflow-x-hidden [scrollbar-width:thin] relative"
+      class="grow flex flex-col justify-start py-2 overflow-y-auto overflow-x-hidden [scrollbar-width:thin] relative"
     >
       <ng-content></ng-content>
     </section>
     @if(showFooter()){
-    <footer class="border-t border-gray-300 h-14">
+    <footer class="border-t border-gray-300 min-h-7 h-min">
       <ng-content select="[footer]"></ng-content>
     </footer>
     }

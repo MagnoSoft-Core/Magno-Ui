@@ -17,4 +17,7 @@ export class MagnoNavbar {
   routeLogo = input<string>('');
   clientOrganizationName = input<string>('');
   clientOrganizationLogo = input<string>('');
+
+  menuTitle = input<string>('Comunicaciones');
+  showMenuButton = input<boolean>(true);
 }

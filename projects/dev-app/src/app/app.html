@@ -3,6 +3,8 @@
     imgLogo="/logo_mag.png"
     titleLogo="Magno-UI"
     subTitleLogo="Dev App"
+    clientOrganizationName="Sisma Corporation"
+    clientOrganizationLogo="/sismasalud.png"
     [isFixed]="false"
   />
 
@@ -11,17 +13,17 @@
       <!-- 1. Ítem simple, sin hijos -->
       <magno-sidebar-item
         iconPath="/sismasalud.png"
-        itemTitle="Dashboard"
+        tooltipText="Dashboard"
         link="/dashboard"
-        [iconWidth]="36"
+        [iconWidth]="30"
         itemDirection="column"
       />
 
       <!-- 2. Ítem con submenú -->
       <magno-sidebar-item
         iconPath="/users.svg"
-        itemTitle="Usuarios"
-        [iconWidth]="36"
+        tooltipText="Gestión de usuarios"
+        [iconWidth]="30"
         [childrens]="userManagementChildren"
         [navToFirstChild]="true"
         activeClass="bg-red-300"
@@ -30,8 +32,13 @@
 
       <!-- Puedes añadir más items aquí -->
 
-      <div footer class="p-2">
+      <div
+        footer
+        class="p-2 flex flex-col h-full justify-center items-center bg-amber-200 gap-5"
+      >
         <p class="text-xs text-center text-gray-400">Footer</p>
+        <!-- <p class="text-xs text-center text-gray-400">Footer</p>
+        <p class="text-xs text-center text-gray-400">Footer</p> -->
       </div>
     </magno-sidebar>
 
